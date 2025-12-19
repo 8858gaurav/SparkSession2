@@ -46,6 +46,9 @@ streaming_query = aggregated_orders \
 .format("csv") \
 .outputMode("complete") \
 .option("checkpointLocation","checkpointdir108") \
+# spark save progress (metadata) under checkpointdir108
+# .trigger(), tells sparks when to execute streaming processing & how often to create a microbatches.
+# process all currently available data, run multiple bicro batches if needed.
 .trigger(availableNow= True) \
 .toTable("orders_final_result")
 
