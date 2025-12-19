@@ -52,6 +52,7 @@ if __name__ == '__main__':
     .format("console") \
     .outputMode("complete") \
     .option("checkpointLocation","checkpointdir108") \
+    # spark check for new data every 30 seconds, if new data available, then it process, otherwise it'll checks again after 30 seconds.
     .trigger(processingTime= "30 Seconds") \
     .toTable("orders_final_result")
 
