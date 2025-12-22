@@ -12,6 +12,9 @@ if __name__ == '__main__':
             .builder \
             .appName("debu application") \
             .config("spark.sql.shuffle.partitions", 3) \
+            .config("spark.driver.bindAddress", 'localhost') \
+            .config("spark.ui.port", "4050") \
+            .config("spark.driver.port", "4051") \
             .config("spark.sql.warehouse.dir", f"/user/{username}/warehouse") \
             .enableHiveSupport() \
             .master("local[2]") \
