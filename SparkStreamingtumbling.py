@@ -25,16 +25,34 @@ orders_df = spark \
 value_df = orders_df.select(from_json(col("value"), orders_schema).alias("Value"))
 
 value_df.printSchema()
+# root
+#  |-- Value: struct (nullable = true)
+#  |    |-- order_id: long (nullable = true)
+#  |    |-- order_date: timestamp (nullable = true)
+#  |    |-- order_customer_id: long (nullable = true)
+#  |    |-- order_status: string (nullable = true)
+#  |    |-- amount: long (nullable = true)
 
 refined_orders_df = value_df.select("value.*")
 
 refined_orders_df.printSchema()
+# root
+#  |-- order_id: long (nullable = true)
+#  |-- order_date: timestamp (nullable = true)
+#  |-- order_customer_id: long (nullable = true)
+#  |-- order_status: string (nullable = true)
+#  |-- amount: long (nullable = true)
 
 window_agg_df = refined_orders_df \
 .groupBy(window(col("order_date"), "15 minutes")) \
 .agg(sum("amount").alias("total_invoice"))
 
 window_agg_df.printSchema()
+# root
+#  |-- window: struct (nullable = false)
+#  |    |-- start: timestamp (nullable = true)
+#  |    |-- end: timestamp (nullable = true)
+#  |-- total_invoice: long (nullable = true)
 
 output_df = window_agg_df.select("window.start", "window.end", "total_invoice")
 
