@@ -1,3 +1,8 @@
+# Key Roles of checkpointLocation
+# 1. Fault Tolerance & Recovery: f your Spark application fails (due to a cluster crash, JVM error, or network issue), Spark uses the data in the checkpoint directory to resume processing.
+# 2. Maintain State Information for stateful transformations: For stateful queries (like window(), groupBy(), or dropDuplicates()), Spark must remember intermediate results (e.g., a running count). It saves this "state" into the checkpoint location so that if the job restarts, the running totals aren't lost.
+# 3. Exactly-once semantics for output sinks that support it.
+
 - Complete Mode : All the changes made due to the addition of a new
 file along the previous results will be reflected in the output. The entire
 updated result table will be written to the external storage.
