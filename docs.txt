@@ -1,0 +1,11 @@
+- Complete Mode : All the changes made due to the addition of a new
+file along the previous results will be reflected in the output. The entire
+updated result table will be written to the external storage.
+  
+- Update Mode : UPSERT(Update+Insert) Only the updates and inserts
+made as per the new file added will reflect in the output. Only the rows
+that are updated or newly inserted will be written to the external
+storage.
+  
+- Append Mode : Append mode doesn’t work on Aggregation operations.
+Only the new records added will be shown.
