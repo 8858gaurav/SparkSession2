@@ -12,6 +12,8 @@ spark = SparkSession.builder.config(conf=my_conf).getOrCreate()
 orders_schema = "order_id long, order_date timestamp, order_customer_id long, order_status string, amount long"
 
 # creating the dataframe
+# type nc -lk 9975 in new terminal to create a socket stream
+# copy the data line by line from dataset.txt and paste it into that terminal to simulate the streaming data
 orders_df = spark \
     .readStream \
     .format("socket") \
