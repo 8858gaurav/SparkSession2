@@ -7,6 +7,9 @@ print(username)
 spark = SparkSession \
     .builder \
     .config("spark.sql.warehouse.dir", f"/user/{username}/warehouse") \
+    .config("spark.driver.bindAddress", 'localhost') \
+    .config("spark.ui.port", "4050") \
+    .config("spark.driver.port", "4051") \
     .enableHiveSupport() \
     .master("local[2]") \
     .getOrCreate()
