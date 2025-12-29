@@ -1,4 +1,4 @@
-# trigger stream job
+# trigger batch stream job
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 import getpass
