@@ -41,7 +41,7 @@ window_agg_df.printSchema()
 
 output_df = window_agg_df.select("window.start", "window.end", "total_invoice")
 
-#append mode will not work for aggregations.
+#append mode will not work for aggregations, it'll work only after using watermark features. 
 # appened output mode not supported when there are streaming aggregations on streaming dataframe/Datasets without watermark.
 query = output_df \
     .writeStream \
