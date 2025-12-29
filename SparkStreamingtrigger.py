@@ -3,6 +3,7 @@
 # means, every 30sec, spark checks for new data & proceess it.
 # keeps running until manually stoped
 # continuous file ingestion process. 
+# cluster running continously. 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 import getpass
