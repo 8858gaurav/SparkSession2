@@ -14,3 +14,16 @@ storage.
   
 - Append Mode : Append mode doesn’t work on Aggregation operations.
 Only the new records added will be shown.
+
+1. Complete mode - It states that the records are maintained right from the
+beginning. With this feature of complete mode, it will not allow the
+state-store clean activity. Therefore, Complete mode is not the right
+choice to be used with Watermark.
+2. Append mode - updates are not possible in append mode. Ideally, this
+mode doesn’t support aggregations. However, if the watermark
+boundary is set to a certain limit and there are no changes made after
+this point, then the Append mode allows windowing aggregations.
+The window information will be displayed only when the particular
+widow expires. The limitation is that we need to wait for the watermark
+boundary duration to view the window information.
+3. Update mode - is mostly used along with the watermark feature
