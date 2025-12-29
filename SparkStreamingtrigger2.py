@@ -2,6 +2,7 @@
 # automativaly stops when there is no more data available.
 # process all data that is currently available
 # run finite micro-batches
+# cluster stops automatically when there is no data available. auto terminate the cluster
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 import getpass
