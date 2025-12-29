@@ -1,4 +1,7 @@
-# trigger stream job
+# trigger((processingTime= "30 Seconds") continuous stream job
+# process data every fixed time interval, which is 30 sec here
+# keeps running until manually stoped
+# continuous file ingestion process. 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 import getpass
