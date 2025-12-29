@@ -1,4 +1,7 @@
 # trigger batch stream job
+# automativaly stops when there is no more data available.
+# process all data that is currently available
+# run finite micro-batches
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 import getpass
