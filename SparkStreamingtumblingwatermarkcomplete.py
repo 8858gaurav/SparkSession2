@@ -1,5 +1,5 @@
 # put the line by line from Dataset to this i/p script console.
-
+ 
 from pyspark.conf import SparkConf
 from pyspark.sql.session import SparkSession
 from pyspark.sql.functions import *
