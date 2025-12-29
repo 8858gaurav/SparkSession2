@@ -49,6 +49,10 @@ window_agg_df.printSchema()
 
 output_df = window_agg_df.select("window.start", "window.end", "total_invoice")
 
+# - Watermark is important to clean the state-store regularly to avoid out-of-memory issues.
+# - Events occurring within the watermark boundary will be updated.
+# - Events occurring outside of the watermark boundary may or may not beupdated.
+
 #append mode will not work for aggregations.
 # appened output mode not supported when there are streaming aggregations on streaming dataframe/Datasets without watermark.
 query = output_df \
