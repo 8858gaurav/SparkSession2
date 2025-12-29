@@ -36,7 +36,7 @@ refined_orders_df.printSchema()
 # the previous state from the state store
 # here water mark will not work. state store will store all this things under executor memory.
 
-# for aggregations ( windowing or normal) append mode will not work.
+# for aggregations ( windowing or normal) append mode will not work, it'll work after using the watermark witj append mode.
 # for any window ( event time: 10:00 to 10:15, where your i/p data lies in this time frame ) we need to update the data,
 #  if we get something new data in the same window a new data has been created at 10:05, and your previous data were
 # created at 10:00.
