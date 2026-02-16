@@ -54,10 +54,9 @@ if __name__ == '__main__':
 
     spark.sql("drop table orders_final_result")
 
-    # update mode will work with delta table only.
     streaming_query = aggregated_orders \
     .writeStream \
-    .format("console") \
+    .format("delta") \
     .outputMode("complete") \
     .option("checkpointLocation","checkpointdir108") \
     # spark check for new data every 30 seconds, if new data available, then it process, otherwise it'll checks again after 30 seconds.
