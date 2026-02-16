@@ -50,7 +50,7 @@ spark.sql("drop table orders_final_result")
 # update mode will work with delta table only.
 streaming_query = aggregated_orders \
 .writeStream \
-.format("csv") \
+.format("delta") \
 .outputMode("complete") \
 .option("checkpointLocation","checkpointdir108") \
 # spark save progress (metadata) under checkpointdir108
