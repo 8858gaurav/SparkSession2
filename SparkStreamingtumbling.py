@@ -21,7 +21,8 @@ orders_df = spark \
     .option("host", "localhost") \
     .option("port", "9971") \
     .load()
-
+# data
+# {"order_id":57012,"order_date":"2020-03-02 11:05:00","order_customer_id":2765,"order_status":"PROCESSING", "amount": 200}
 value_df = orders_df.select(from_json(col("value"), orders_schema).alias("Value"))
 
 value_df.printSchema()
