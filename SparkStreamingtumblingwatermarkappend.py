@@ -14,6 +14,8 @@ orders_schema = "order_id long, order_date timestamp, order_customer_id long, or
 # creating the dataframe
 # type nc -lk 9975 in new terminal to create a socket stream
 # copy the data line by line from dataset.txt and paste it into that terminal to simulate the streaming data
+
+#  {"order_id":57012,"order_date":"2020-03-02 11:05:00","order_customer_id":2765,"order_status":"PROCESSING", "amount": 200}
 orders_df = spark \
     .readStream \
     .format("socket") \
